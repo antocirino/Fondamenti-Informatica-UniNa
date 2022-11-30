@@ -231,7 +231,7 @@ bool ricercaLineareVettore(int vettore[], int riemp, int elem, int &posizione){
 }
 ```
 
-## Ordinamento elementi di un vettore
+## Ordinamento elementi di un vettore (selection sort)
 Prototipo funzione:
 ```c++
 void ordinamentoElementiVettore(int [], int );
@@ -270,3 +270,77 @@ void ordinamentoElementiVettore(int vettore[], int riemp) {
 }
 ```
 # Algoritmi C++ vettori con allocazione dinamica
+
+## Inserimento elementi di un vettore
+Prototipo funzione:
+```c++
+void inserimentoElementiVettore (int *, int);
+```
+Cotenuto del main:
+```c++
+int riemp;
+int *vettore;
+...
+vettore = new int[riemp]; //allocazione memoria
+...
+cout << "Inserire gli elementi del vettore";
+inserimentoElementiVettore (vettore, riemp);
+```
+Codice funzione:
+```c++
+void inserimentoElementiVettore(int *vettore, int riemp) {
+    for (int i = 0; i<riemp; i++) {
+        cin >> *(vettore+i);
+    }
+}
+```
+
+## Stampa elementi di un vettore
+Prototipo funzione:
+```c++
+void stampaVettore (int *, int);
+```
+Cotenuto del main:
+```c++
+int riemp;
+int *vettore;
+...
+vettore = new int[riemp]; //allocazione memoria
+...
+cout << "Inserire gli elementi del vettore";
+inserimentoElementiVettore (vettore, riemp);
+```
+Codice funzione:
+```c++
+void inserimentoElementiVettore(int *vettore, int riemp) {
+    for (int i = 0; i<riemp; i++) {
+        cout << *(vettore+i);
+    }
+}
+```
+
+## Elemento minimo vettore
+Prototipo funzione:
+```c++
+int ricercaMinimoVettore (int *, int);
+```
+Contenuto del main:
+```c++
+int riemp;
+int *vettore;
+int min;
+...
+cout << "Il minimo elemento del vettore è: " << ricercaMinimoVettore (vettore, riemp);
+```
+Codice funzione:
+```c++
+int ricercaMinimoVettore (int *vettore, int riemp) {
+    int min = *vettore;
+    for (int i = 0; i<riemp; i++) {
+        if (min>*(vettore+i)) {
+            min = *(vettore + i);
+        }
+    }
+    return min;
+}
+```
