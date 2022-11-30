@@ -58,7 +58,7 @@ cin >> x;
 Con // viene commentata una sola riga.
 Con /*    */ vengono commentate più righe, commento multilinea.
 
-> :warning: **Ogni istruzione va terminata con un punto e virgola.**
+> :warning: Ogni istruzione va terminata con un punto e virgola.
 
 ## Simboli speciali
 - {}: delinatori 
@@ -252,16 +252,16 @@ Un’altra modalità attraverso la quale possiamo definire costanti è tramite u
 Tra variabili, tra costanti e tra variabili e costanti è possibile effettuare operazioni algebriche (tra numeri), logiche (in genere tra i booleani) e di confronto (per la definizione di proposizioni logiche, < o > e altro).
 
 Operatori algebrici:
-  +: somma
-  -: sottrazione
-  *: moltiplicazione
-  /: divisione
-  %: detto modulo, riporta il resto della divisione tra due interi
+- +: somma
+- -: sottrazione
+- *: moltiplicazione
+- /: divisione
+- %: detto modulo, riporta il resto della divisione tra due interi
 
 Operatori logici:
-  &&: AND o prodotto logico
-  ||: OR o somma logica
-  !: NOT o negazione logica
+- &&: AND o prodotto logico
+- ||: OR o somma logica
+- !: NOT o negazione logica
 
 Operatori relazionali
 Restituiscono un vero o un falso
@@ -323,48 +323,47 @@ Nel diagramma di flusso il trapezio indica l’inserimento manuale dei valori, i
 ## Regole di precedenza degli operatori
 In C++, per convenzione, l’operatore di moltiplicazione ha precedenza rispetto all’operatore di addizione. Per fare in modo che le operazioni siano effettuate con ordine diverso sarà sufficiente introdurre delle parentesi tonde.
 Si definisce una regola di precedenza degli operatori. Gli operatori hanno delle priorità prestabilite da C++. L’uguaglianza, l’assegnazione ha la priorità più bassa.
+
 ![image](https://user-images.githubusercontent.com/112080821/204821533-36d07d6e-842f-49a2-87f1-7d775117b832.png)
+
 I numeri che hanno un indice più basso in esecuzione hanno la priorità più alta.
 
 ## Operatori di incremento e auto decremento
+```i++``` e ```i—``` vengono detti operatori di auto incremento e decremento:
 ```c++
-int i = 0;
-i = i +1;
+i = i + 1 //equivale a i++ o ++i
+i = i - 1  //equivale a i— o —i
 ```
-Dichiariamo una variabile e allochiamo uno spazio di memorizzazione 
-i diventa 1 e assegno 1 a i. i viene incrementato di 1. Il motivo è una conseguenza della regola di priorità degli operatori (il + viene eseguito prima del =).
-
-i++ e i— vengono detti operatori di auto incremento e decremento:
-i = i + 1 equivale a i++ o ++i
-i = i - 1  equivale a i— o —i
 Entrambi incrementano e decrementano di 1.
 Auto incremento prefisso: ++i
 Auto incremento postfisso: i++
 
 Con la notazione prefissa si forza l’incremento o il decremento prima del suo uso. Altrimenti si forza l’incremento dopo l’utilizzo della variabile.
-```
+```c++
 int i = 3;
 int y;
 y = i;
 cout << i;
 cout << y;
 ```
-```
-//i=3 e y=3.	int i = 3;
+i=3 e y=3.
+```c++
+int i = 3;
 int y;
 y = i++;
 cout << i;
 cout << y;
 ```
-```
-//i=4 e y=3.	int i = 3;
+i=4 e y=3.	
+```c++
+int i = 3;  
 int y;
 y = ++i;
 cout << i;
 cout << y;
-
-//i=3 e y=4.
 ```
+i=3 e y=4.
+
 Se ++ si trova dopo, uso prima il valore e poi l’incremento. Se ++ si trova prima, uso prima l’incremento e poi il valore.
 
 ## I costrutti di controllo o costrutti condizionali (o di selezione)
