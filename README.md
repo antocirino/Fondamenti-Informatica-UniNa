@@ -61,9 +61,9 @@ Con /*    */ vengono commentate più righe, commento multilinea.
 > :warning: **Ogni istruzione va terminata con un punto e virgola.**
 
 ## Simboli speciali
-- {} delinatori 
-- ; 
-- << indicatore di redirezione 
+- {}: delinatori 
+- ;: 
+- <<: indicatore di redirezione 
 
 ### Esempio di codice con il cout:
 ```c++
@@ -82,23 +82,24 @@ int main() {
 ```
 
 ## Variabili
-Un contenitore di valori (celle di memoria). Questo valore può cambiare durante l’esecuzione del programma. Il tipo di dato che può contenere deve essere dichiarato all’inizio. Ogni variabile viene memorizzata in memoria.
+Soni contenitori di valori (celle di memoria). Questo valore può cambiare durante l’esecuzione del programma. Il tipo di dato che può contenere deve essere dichiarato all’inizio. Ogni variabile viene memorizzata in memoria.
 
 ### Modalità di utilizzo
-Innanzitutto dobbiamo definire/dichiarare una variabile. Quando lo facciamo dobbiamo anteporne il tipo ```c++ int a, b; ```
+Innanzitutto dobbiamo definire/dichiarare una variabile. Quando lo facciamo dobbiamo anteporne il tipo ```c++ int a, b;```
 In questo modo abbiamo definito due numeri interi, a e b.
 Dopo averli definiti possiamo assegnare un valore alla variabile con 
-```c++ a = 1; ```
+```c++ a = 1;```
 Il valore può poi essere utilizzato per eseguire dei calcoli
-```c++ b = a + 1; ```
+```c++ b = a + 1;```
 
-Non possiamo utilizzare una variabile se prima non è stata dichiarata!
+> :warning: Non possiamo utilizzare una variabile se prima non è stata dichiarata!
+
 
 a e b nei casi precedenti sono degli identificatori di variabili. Possiamo dare identificatori anche a delle costanti, etichette, funzioni, parole riservate. Anche cout è un identificatore, è la funzione che permette di stampare a schermo un determinato testo.
 
-Gli identificatori (le variabili) devono sempre iniziare con un carattere alfabetico; non possiamo utilizzare punteggiatura (eccetto l’underscore “_”); non si può utilizzare lo spazio (che viene simulato tramite l’underscore) e possono contenere numeri.
+Gli identificatori devono sempre iniziare con un carattere alfabetico; non possiamo utilizzare punteggiatura (eccetto l’underscore “_”); non si può utilizzare lo spazio (che viene simulato tramite l’underscore) e possono contenere numeri.
 
-C è case sensitive: fa differenza fra lettera maiuscola e minuscola!
+> :warning: C è case sensitive: fa differenza fra lettera maiuscola e minuscola!
 
 C ha a disposizione alcuni tipi di variabili semplici:
 ![image](https://user-images.githubusercontent.com/112080821/204814814-90c207f3-bd95-4104-a3b6-73ee60183b4f.png)
@@ -159,7 +160,7 @@ return 0;
 
 Se abbiamo due variabili V1 e V2 e vogliamo scambiare il valore di queste due ne necessitiamo una terza V3, variabile temporanea, temp, o variabile di appoggio, pivot, per memorizzare il valore di una delle due.
 
-Quando dichiariamo una variabile definiamo anche il tipo. Quando scrivo int v1 v1 è una variabile di tipo intero che può contenere solo un certo range di valori.
+Quando dichiariamo una variabile definiamo anche il tipo. Quando scrivo int v1, v1 è una variabile di tipo intero che può contenere solo un certo range di valori.
 Devo avere un’espressione che è dello stesso tipo o compatibile con il tipo della variabile. Quando assegniamo a delle variabili delle espressioni che non sono dello stesso tipo ma sono compatibili si potrebbero avere perdite di informazioni (es. int v1; e v1=8.99 —> v1 diventa 8).
 
 ## Type casting o coercizione
@@ -250,43 +251,43 @@ Un’altra modalità attraverso la quale possiamo definire costanti è tramite u
 ## Operazioni
 Tra variabili, tra costanti e tra variabili e costanti è possibile effettuare operazioni algebriche (tra numeri), logiche (in genere tra i booleani) e di confronto (per la definizione di proposizioni logiche, < o > e altro).
 
-Operatori algebrici
-+: somma
--: sottrazione
-*: moltiplicazione
-/: divisione
-%: detto modulo, riporta il resto della divisione tra due interi
+Operatori algebrici:
+  +: somma
+  -: sottrazione
+  *: moltiplicazione
+  /: divisione
+  %: detto modulo, riporta il resto della divisione tra due interi
 
-Operatori logici
-&&: AND o prodotto logico
-||: OR o somma logica
-!: NOT o negazione logica
+Operatori logici:
+  &&: AND o prodotto logico
+  ||: OR o somma logica
+  !: NOT o negazione logica
 
 Operatori relazionali
 Restituiscono un vero o un falso
-==: uguaglianza, per determinare se due valori sono uguali
-es.
+- ```==:```: uguaglianza, per determinare se due valori sono uguali
+- ```!=```': diversità, per determinare se due valori sono diversi
+- ```>```: per determinare se il valore a sinistra precede quello a destra (o è più grande)
+- ```<```: per determinare se il valore a sinistra segue quello a destra (o è più piccolo)
+- ```>=```: per determinare se il valore a sinistra è più grande o uguale di quello a destra
+- ```<=```:  per determinare se il valore a sinistra è più grande o uguale di quello a sinistra  
+
+Esempi:
 ```c++
 int x = 3;
 x == 3
 ```
-Restituisce vero in quanto confronto due valori
+Restituirebbe vero in quanto confronto tra due valori uguali.
 ```c++
 int x = 3;
 x == 5
 ```
-Restituisce falso
+Restituirebbe falso.
 ```c++
 int x=3;
 x=5
 ```
 Sbagliato in quanto non stiamo verificando se i valori sono uguali ma sto assegnando 5 a x!
-
-- ```!=```': diversità, per determinare se due valori sono diversi
-- ```>```: per determinare se il valore a sinistra precede quello a destra (o è più grande)
-- ```<```: per determinare se il valore a sinistra segue quello a destra (o è più piccolo)
-- ```>=```: per determinare se il valore a sinistra è più grande o uguale di quello a destra
-- ```<=```:  per determinare se il valore a sinistra è più grande o uguale di quello a sinistra
 
 
 ### Esercizio operazioni algebriche:
