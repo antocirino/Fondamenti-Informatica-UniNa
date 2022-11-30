@@ -535,30 +535,23 @@ Se la dichiarazione è interna ad un blocco (insieme di istruzioni racchiuse tra
 Sulle variabili locali può agire solo la funzione che l’ha dichiarata. Le funzioni non vedono ciò che è dichiarato in altre funzioni anche se le seguono.
 
 ## Array o Vettore
-C++ mette a disposizione delle variabili di tipo semplice. Quando vogliamo lavorare su un numero elevato di variabili, su un insieme di variabili. Possiamo allora definire una variabile strutturata: un contenitore di variabili dello stesso tipo. In C++ una struttura composta di questo tipo viene definito array. Non è nient’altro che una struttura composta che contiene al suo interno tutte variabili dello stesso tipo. L’array ha un nome ma ogni qual volta lo definiamo dobbiamo anche dichiarare staticamente la sua cardinalità massima (n. elementi in esso contenuto):
+C++ mette a disposizione delle variabili di tipo semplice. Quando vogliamo lavorare su un numero elevato di variabili, su un insieme di variabili, possiamo definire una variabile strutturata: un contenitore di variabili dello stesso tipo. In C++ una struttura composta di questo tipo viene definito array. Non è nient’altro che una struttura che contiene al suo interno tutte variabili dello stesso tipo. L’array ha un nome ma ogni qual volta lo definiamo dobbiamo anche dichiarare staticamente la sua cardinalità massima (n. elementi in esso contenuto):
 ```c++
 <tipo> nome_array [dimensione]
 ```
-Quando dichiaro un array di una certa dimensione, l’elaboratore mi alloca lo spazio necessario per andare a contenere un certo numero di elementi dello stesso tipo.
-
-es.
+Quando dichiaro un array di una certa dimensione, l’elaboratore mi alloca lo spazio necessario per andare a contenere un certo numero di elementi dello stesso tipo:
 ```c++
 int vettore[5]
 ```
-Il vettore può contenere al più 5 elementi interi. Questi elementi si trovano tutti in registri diversi e successivi. Il primo elemento del vettore corrisponde alla prima locazione ed è seguito in modo consecutivo dagli altri
+Questo vettore può contenere al più 5 elementi interi. Questi elementi si trovano tutti in registri diversi e successivi. Il primo elemento del vettore corrisponde alla prima locazione ed è seguito in modo consecutivo dagli altri
 Per accedere ad un elemento specifico basta indicare l’indice, tra parentesi quadre, dopo il nome dell’array stesso.
-L’indice parte da zero. Se un array ha cardinalità N, l’ultimo elemento ha indice N-1. Per indicare la posizione, tra parentesi quadre, possiamo utilizzare valori costanti, espressioni o variabili ma sempre di tipo intero!
-
-
-es.
+L’indice parte da zero. Se un array ha cardinalità N, l’ultimo elemento ha indice N-1. Per indicare la posizione, tra parentesi quadre, possiamo utilizzare valori costanti, espressioni o variabili ma sempre di tipo intero:
 ```c++
 vettore[1];
 vettore [i];
 vettore [c+3];
 ```
-L’inizializzazione di un vettore avviene indicando i valori degli elementi tra parentesi graffe separati da virgole.
-
-es.
+L’inizializzazione di un vettore avviene indicando i valori degli elementi tra parentesi graffe separati da virgole:
 ```c++
 double v[3]={0.5, -13.25}
 int vett[3]={0} //Inizializza tutti I valori a zero
@@ -571,20 +564,20 @@ Riemp deve essere al massimo uguale alla dimensione fissata per v, per non gener
 
 Dichiarazione statica: definizione all’inizio del numero massimo di elementi di un certo tipo che il vettore potrà contenere.
 
-###Array multidimensionali
-Si dichiarano tramite
+### Array multidimensionali
+Si dichiarano tramite:
 ```c++
 <Tipo> nome_array [dim1] [dim2]…[dimn];
 ```
 Sono strutture in cui sono necessarie più posizioni per identificare un elemento. Una struttura di due dimensioni è anche detta matrice.
 
-Es.
 ```c++
-Int mat[2][3]; //dichiara una matrice di 2 righe e 3 colonne
+Int matrice[2][3]; //dichiara una matrice di 2 righe e 3 colonne
 ```
-Tramite mat[i][j] indiciamo l’elemento di posto (i, j) in mat. Per accedere ad un elemento generico utulizziamo: matrice[indice riga] [indice colonna].
-
-Anche gli array bidimensionali vengono disposti
+Tramite matrice[i][j] indiciamo l’elemento di posto (i, j) in matrice. Per accedere ad un elemento generico utulizziamo: 
+ ```c++
+matrice[indice riga] [indice colonna].
+```
 
 La matrice è bidimensionale, la memoria è unidimensionale. Si esegue quindi la linearizzazione della matrice
 Int mat[2][3] = {1, 2, 3, 4, 5, 6} stabilisce la seguente associazione:
@@ -604,18 +597,18 @@ char nome_stringa [dim]
 ```
 In C++ l’ultimo carattere è automaticamente sostituito con null, o carattere terminatore (\0), che indica il termine della stringa. Se dim è dunque uguale a 20, potrò avere stringhe di al più 19 caratteri.
 
-Per inizializzare 
+Per inizializzare:
 ```c++
 char stringa[10] = {‘c’, ‘i’, ‘a’, ‘o’, ‘\0’}; //oppure char stringa[10]=”ciao”; 
 ```
 Nel secondo caso il terminatore viene aggiunto automaticamente in fondo all’array. 
-Il cin di una stringa blocca appena incontra uno spazio.
+Il cin di una stringa si blocca appena incontra uno spazio.
 
-In alternativa si sua il comando cin.get. Ha due parametri, la variabile stringa e la dimensione massima dei caratteri in entrata che vogliamo accettare da terminale. In genere quest’ultimo si pone uguale alla dimensione massima della stringa
+In alternativa si usa il comando cin.get. Ha due parametri, la variabile stringa e la dimensione massima dei caratteri in entrata che vogliamo accettare da terminale. In genere quest’ultimo si pone uguale alla dimensione massima della stringa:
 ```c++
 cin.get (stringa, 10);
 ```
-Altro comando è cin.getline. Ha 3 parametri. I primi due sono gli stessi, l’ultimo è il carattere di fine terminazione che appena viene incontrato smette di essere eseguito (carattere escluso).
+Altro comando è cin.getline. Ha 3 parametri. I primi due sono gli stessi, l’ultimo è il carattere di fine terminazione che appena viene incontrato termina l'esecuzione (carattere escluso).
 ```c++
 cin.getline (stringa, 10, ‘$’);
 ```
@@ -624,8 +617,8 @@ Se abbiamo due cin di fila possiamo ottenere degli errori. Come soluzione possia
 string nome;
 getline (cin, nome);
 ```
-## String.h
-La libreria string.h mi permette di utilizzare l’oggetto string e di trattarlo non come array. Può essere utilizzato anche per gli array.
+### String.h
+La libreria string.h ci permette di utilizzare l’oggetto string e di trattarlo non come array. Può però essere utilizzato anche per gli array.
 ![image](https://user-images.githubusercontent.com/112080821/204823989-2e3cd06b-04eb-4ab8-921e-69d036b71e84.png)
 
 ## Record
@@ -639,20 +632,18 @@ struct nome_record {
 }
 ```
 Si può mettere prima del main!
-Per accedere ai campi:
+Per accedere ai campi si usa:
 ```c++
 nome_record.nome_campo  // si utilizza la dot notation
 ```
-In C++ + possibile definire un nuovo tipo sul quale poter andare ad operare. Si utilizza l’istruzione typedef (istruzione di tipo)
+In C++, grazie alla struct, è possibile definire un nuovo tipo sul quale poter andare ad operare. Si utilizza l’istruzione typedef (istruzione di tipo)
 ```c++
-#define N 10
-typedef float arrayDIReali [N];
+typedef float arrayDiReali [N];
 ```
-Def
 
 ## Puntatori
 E’ un indirizzo di una locazione di memoria. Una variabile di tipo puntatore è una variabile predisposta a contenere un indirizzo di memoria, in particolare del primo registro di dati dal quale parte la memorizzazione di un dato tipo.
-Il contenuto delle locazioni di memoria è detto valore della variabile. L’indirizzo di memoria è detto indirizzo della variabile. Il nome della variabile india direttamente la prima delle locazioni di memoria contenenti il valore. Una variabile puntatore, dunque, indica la locazione di memoria ad essa associata.
+Il contenuto delle locazioni di memoria è detto valore della variabile. L’indirizzo di memoria è detto indirizzo della variabile. Il nome della variabile indica direttamente la prima delle locazioni di memoria contenenti il valore. Una variabile puntatore, dunque, indica la locazione di memoria ad essa associata.
 
 Per dichiarare una variabile puntatore utilizziamo l’asterisco:
 ```c++
@@ -673,13 +664,14 @@ La gestione delle variabili di tipo puntatore fa uso degli operatori & e *:
 - *, detto di dereferenziazione (azione con cui si toglie il riferimento e si raggiungono i dati a cui il puntatore riferisce), è applicabile solo a variabili di tipo puntatore e consente di accedere all’area di memoria memorizzata all’interno del puntatore (a cui punta il puntatore).
 
 Per esempio, per accedere alla variabile x tramite puntatore per modificarne il valore scriviamo:
+
 ```c++
 int *punt;
 int x, y;
 // Assegniamo al puntatore intero punt l’indirizzo di memoria di x:
 punt = &x;   
 // Assegniamo a x il valore 15:
-*punt = 15;       (analogo a scrivere x=15)
+*punt = 15;    //analogo a scrivere x=15
 ```
 Con *punt accediamo ai registri associati a punt.
 ```c++
@@ -724,9 +716,10 @@ L’operatore new alloca uno o più oggetti nell’area heap restituendone l’i
 <T> punt = new <T> [<dimensione>] (<valore iniziale>);
 ```
 In cui:
--	<T>: tipo della variabile da creare;
--	<dimensione>: numero delle variabili da creare, che vengono sistemate nella memoria heap consecutivamente (come gli elementi di un array) e l’indirizzo restituito da new punta alla prima variabile; se il numero non è specificato viene allocata una sola variabile;
--	<valore iniziale>: valore iniziale con cui l’area allocata viene inizializzata.
+-	T: tipo della variabile da creare;
+-	dimensione: numero delle variabili da creare, che vengono sistemate nella memoria heap consecutivamente (come gli elementi di un array) e l’indirizzo restituito da new punta alla prima variabile; se il numero non è specificato viene allocata una sola variabile;
+-	valore iniziale: valore iniziale con cui l’area allocata viene inizializzata.
+
 Esempi:
 ```c++
 int* punt = new int;   //alloca una variabile di tipo int nell’area heap e ne assegna l’indirizzo a punt
