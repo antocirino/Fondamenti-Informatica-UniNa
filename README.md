@@ -1,6 +1,10 @@
 # C++ - Fondamenti di informatica - UniNa
 
 ## Indice:
+- [Algoritmi vettori](https://github.com/antocirino/fondamenti_informatica/blob/main/algoritmi_vettore.md).
+- [Algoritmi matrici](https://github.com/antocirino/fondamenti_informatica/blob/main/algoritmi_matrice.md).
+
+
 
 
 Un programma in C++ assumerà sempre la seguente struttura:
