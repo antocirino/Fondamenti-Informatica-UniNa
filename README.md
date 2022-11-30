@@ -58,7 +58,7 @@ Ogni istruzione va terminata con un punto e virgola.
 ; 
 << indicatore di redirezione 
 
-### Codice 1:
+### Esempio di codice con il cout:
 ```c++
 #include <iostream>
 
@@ -583,180 +583,117 @@ mat [1][1] = 5;
 mat [1][2] = 6;
 ```
 
-Algoritmo massimo elemento array
-
-Int max = vet[0];
-for (int I = 1; I < riemp; i++) {
-     if (vet[i] > max) {
-            max = vet[i];
-     }
-}
-
-Algoritmo somma elementi array
-
-Int somma = 0;
-for (int i = 0; i < riemp; i++) {
-      somma = somma + vet[i];
-}
-
-Algoritmo ricerca elemento array
-
-int el;
-cin >> el;
-bool trovato = false;
-posizione = 0;
-while(!trovato && posizione<riemp) {
-         if (vet[posizione]==el) {
-                 trovato=true;
-          } else {
-                 posizione++;
-         }
-}
-
-Algoritmo cancellazione elemento pos array
-/*spostiamo all’indietro di un indice tutti gli elementi da pos+1 fino a riempimento*/
-for (int i = pos; i<riemp-1; i++) {
-       vet[i] = vet [i+1]; 
-}
-//alla fine dobbiamo decrementare di uno il riempimento 
-riemp--;
-
-Algoritmo inserimento nuovo elemento pos array
-
-//incrementiamo di uno il riempimento
-riemp++;
-/*spostiamo in avanti di un indice tutti gli elementi da pos fino a riempimento*/
-for (int i=riemp-1; i>pos; i--) {
-      vet[i]=vet[i-1];
-}
-//inseriamo el in indice pos
-vet[pos]=el;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Stringhe di caratteri
+## Stringhe di caratteri
 Una stringa è una sequenza di caratteri che può essere definita come array di char:
-
+```c++
 char nome_stringa [dim]
-
+```
 In C++ l’ultimo carattere è automaticamente sostituito con null, o carattere terminatore (\0), che indica il termine della stringa. Se dim è dunque uguale a 20, potrò avere stringhe di al più 19 caratteri.
 
 Per inizializzare 
-
-char stringa[10] = {‘c’, ‘i’, ‘a’, ‘o’, ‘\0’}; oppure char stringa[10]=”ciao”; 
+```c++
+char stringa[10] = {‘c’, ‘i’, ‘a’, ‘o’, ‘\0’}; //oppure char stringa[10]=”ciao”; 
+```
 Nel secondo caso il terminatore viene aggiunto automaticamente in fondo all’array. 
 Il cin di una stringa blocca appena incontra uno spazio.
 
 In alternativa si sua il comando cin.get. Ha due parametri, la variabile stringa e la dimensione massima dei caratteri in entrata che vogliamo accettare da terminale. In genere quest’ultimo si pone uguale alla dimensione massima della stringa
-
+```c++
 cin.get (stringa, 10);
-
+```
 Altro comando è cin.getline. Ha 3 parametri. I primi due sono gli stessi, l’ultimo è il carattere di fine terminazione che appena viene incontrato smette di essere eseguito (carattere escluso).
-
+```c++
 cin.getline (stringa, 10, ‘$’);
-
+```
 Se abbiamo due cin di fila possiamo ottenere degli errori. Come soluzione possiamo utilizzare l’oggetto string (da usare solo in questo caso):
-
+```c++
 string nome;
 getline (cin, nome);
-
-String.h
+```
+## String.h
 La libreria string.h mi permette di utilizzare l’oggetto string e di trattarlo non come array. Può essere utilizzato anche per gli array.
+![image](https://user-images.githubusercontent.com/112080821/204823989-2e3cd06b-04eb-4ab8-921e-69d036b71e84.png)
 
- 
-
-
-Record
+## Record
 Una variabile definita da diversi campi è detta struttura, o record. E’ un tipo di … che contiene dei dati, o membri.
 La dichiarazione prevede che ne venga fissato il nome e che ne siano elencati i campi specificando per ognuno di essi il tipo di appartenenza.
-
+```c++
 struct nome_record {
      float x1;
      float x2;
      char nome[5];
 }
-
+```
 Si può mettere prima del main!
 Per accedere ai campi:
-
-nome_record.nome_campo  // dot notation
-
+```c++
+nome_record.nome_campo  // si utilizza la dot notation
+```
 In C++ + possibile definire un nuovo tipo sul quale poter andare ad operare. Si utilizza l’istruzione typedef (istruzione di tipo)
-
+```c++
 #define N 10
 typedef float arrayDIReali [N];
-
+```
 Def
 
-Puntatori
+## Puntatori
 E’ un indirizzo di una locazione di memoria. Una variabile di tipo puntatore è una variabile predisposta a contenere un indirizzo di memoria, in particolare del primo registro di dati dal quale parte la memorizzazione di un dato tipo.
 Il contenuto delle locazioni di memoria è detto valore della variabile. L’indirizzo di memoria è detto indirizzo della variabile. Il nome della variabile india direttamente la prima delle locazioni di memoria contenenti il valore. Una variabile puntatore, dunque, indica la locazione di memoria ad essa associata.
 
 Per dichiarare una variabile puntatore utilizziamo l’asterisco:
-
+```c++
 //Nome_tipo* nome_puntatore;
 int* puntatore_intero;
-
+```
 I puntatori si aggiornano automaticamente in base al tipo di dato che essi puntano. È utile per l’allocazione dinamica degli array.
-
-Sbagliato: int* p1, p2, p3;      //p1 risulterà puntatore e p2 e p3 interi
-Corretto: int *p1, *p2, *p3;
-
+```c++
+int* p1, p2, p3;      //Modalità errata: p1 risulterà puntatore e p2 e p3 interi
+int *p1, *p2, *p3;    //Modalità corretta
+```
 Ad una variabile di tipo puntatore possono essere assegnati solo indirizzi di variabili di tipo uguale con la sua dichiarazione. Non è permessa l’assegnazione:
-
+```c++
 punt_intero = punt_reale;
-
+```
 La gestione delle variabili di tipo puntatore fa uso degli operatori & e *:
 - & restituisce l’indirizzo di una variabile; 
 - *, detto di dereferenziazione (azione con cui si toglie il riferimento e si raggiungono i dati a cui il puntatore riferisce), è applicabile solo a variabili di tipo puntatore e consente di accedere all’area di memoria memorizzata all’interno del puntatore (a cui punta il puntatore).
 
 Per esempio, per accedere alla variabile x tramite puntatore per modificarne il valore scriviamo:
-
+```c++
 int *punt;
 int x, y;
 // Assegniamo al puntatore intero punt l’indirizzo di memoria di x:
 punt = &x;   
 // Assegniamo a x il valore 15:
 *punt = 15;       (analogo a scrivere x=15)
-
+```
 Con *punt accediamo ai registri associati a punt.
-
+```c++
 *punt = 15 //comando di assegnazione del valore
 y = *punt  //comando di lettura del valore
-
+```
 NULL: puntatore che non punta a niente.
 In entrambi i casi se punt ha valore NULL si genera un errore in fase di esecuzione.
 
-Alias
+### Alias
 L’operatore & è detto di riferimento in quanto consente di associare ad una variabile nomi alternativi. Definita v come variabile intera, la dichiarazione:
-
+```c++
 int&  alias  =  v;     // o anche     int   &alias  =  v
-
+```
 definisce con alias un riferimento a v che comporta che i due identificatori (alias e v) operano sullo stesso registro di memoria. Questo significa che posso usare alias per cambiare il valore di v, come accade nelle funzioni in cui il parametro è passato per riferimento. Però con v si accede direttamente ad esso, con alias si accede indirettamente tramite l’indirizzo di v caricato in alias.
 
 
 
 
-Allocazione statica vs Allocazione dinamica
+## Allocazione statica vs Allocazione dinamica
 Una caratteristica importante di C/C++ è la gestione della memoria in modo dinamico.
 L’allocazione dinamica permette di allocare le variabili in memoria durante l’esecuzione del programma utilizzando lo spazio che effettivamente serve. Senza si è costretti in molti casi a fare delle previsioni sulle reali necessità di occupazione della memoria.
 Con l’allocazione statica si devono dimensionare le strutture dati prima che il programma venga eseguito, a tempo di compilazione. Non sempre si è in condizioni di poter prevedere quanta memoria sarà necessaria per il suo corretto funzionamento. Un uso eccessivo della memoria porta al dimensionamento esagerato. O viceversa si parla di dimensionamento non sufficiente. In quest’ultimo caso ci si può ritrovare in una situazione di errore di esecuzione.
 
-Allocazione dinamica
+## Allocazione dinamica
 Permette di utilizzare esattamente la quantità di memoria necessaria per l’applicazione che può variare di volta in volta a seconda della specifica esecuzione del programma. Una tale gestione della memoria non è però accompagnata da controlli efficaci da parte del compilatore su come viene gestita la memoria, ma lascia al programmatore questo onere: l’allocazione dinamica non è completamente gestita dal compilatore, siamo noi a dovere allocare e deallocare la memoria all’occorrenza.
 
-Modalità di allocazione delle variabili
+## Modalità di allocazione delle variabili
 Il linguaggio C consente tre modalità di allocazione delle variabili:
 -	Statica: le variabili sono dichiarate all’esterno delle funzioni o mediante la parola chiave static. Tali variabili vengono allocate all’inizio dell’esecuzione del programma e deallocate solo alla sua terminazione. Le variabili statiche hanno la proprietà di preservare il loro valore anche dopo che sono fuori dal loro scope. Sono locali ad una particolare funzione e vengono inizializzate solo una volta. Il valore resta inalterato quando si esce dalla funzione, per cui quando si richiama nuovamente la funzione tale variabile ha ancora il valore assegnatogli precedentemente;
 -	Automatica: le variabili sono dichiarate all’interno di una funzione: in questo caso vengono allocate all’attivazione della funzione e deallocate alla sua terminazione; 
@@ -764,65 +701,69 @@ Il linguaggio C consente tre modalità di allocazione delle variabili:
 
 Una variabile static non muore al termine dell’esecuzione. Questo può essere sfruttato.
 
-Memoria Heap
+## Memoria Heap
 La memoria ha due porzioni dette rispettivamente Heap e Stack. Nel caso di allocazione dinamica viene utilizzata la memoria heap. Questa è soggetta a regole di visibilità e tempo di vita completamente diverse da quelle che governano le altre aree di memoria. L’area heap non è allocata automaticamente ma può essere allocata o rimossa solo su esplicita richiesta del programma. Non è identificata da un nome, ma è accessibile esclusivamente tramite puntatori. La sua visibilità è legata a quella della variabile puntatore che ne contiene l’indirizzo. Il suo tempo di vita coincide con l’intera durata del programma, a meno che non venga esplicitamente deallocata.
 
-Operatore new
+## Operatore new
 L’operatore new alloca uno o più oggetti nell’area heap restituendone l’indirizzo. Se l’area heap è interamente occupata viene restituito il valore NULL come condizione di errore. Solo il tipo deve essere sempre specificato e deve essere compatibile con il tipo della variabile puntatore:
-
+```c++
 <T> punt = new <T> [<dimensione>] (<valore iniziale>);
-
+```
+In cui:
 -	<T>: tipo della variabile da creare;
 -	<dimensione>: numero delle variabili da creare, che vengono sistemate nella memoria heap consecutivamente (come gli elementi di un array) e l’indirizzo restituito da new punta alla prima variabile; se il numero non è specificato viene allocata una sola variabile;
 -	<valore iniziale>: valore iniziale con cui l’area allocata viene inizializzata.
 Esempi:
-
+```c++
 int* punt = new int;   //alloca una variabile di tipo int nell’area heap e ne assegna l’indirizzo a punt
 
 int* v = new int [100]  /* alloca un vettore v di 100 variabili intere nell’area heap e si assegna a v l’indirizzo della prima posizione v[0] */
 
 int* v = new int [n] /* molto utile quando non si conosce a priori la dimensione massima del vettore. “n” è una variabile il cui valore è determinato durante l’esecuzione. In tale modo vengono allocate in memoria solo le n variabili che servono al programma */
+```
 
-Null Pointer o Puntatore nullo
+### Null Pointer o Puntatore nullo
 Una variabile puntatore a cui non è stato assegnato valore assume il valore zero;
-
+```c++
 punt_intero = 0;
-
+```
 Il puntatore che contiene il valore zero è indefinito, nel senso che punta a un’area di memoria irraggiungibile. Un puntatore di questo tipo è noto come null pointer o puntatore nullo. Lo standard prevede che nel file “stddef.h” sia definita la costante NULL per rappresentare formalmente un puntatore nullo. L’uso di una variabile puntatore con valore NULL genera un errore in fase di esecuzione.
 
-Operatore delete
+## Operatore delete
 L’operatore unario delete dealloca la memoria dell’area heap riferita dal puntatore specificato. Non restituisce alcun valore.
-
+```c++
 delete punt;
-
+```
 Dichiara libera la zona di memoria riferita da un puntatore. Tale zona potrà essere utilizzata da un successivo operatore new. L’operatore non cancella il contenuto delle locazioni di memoria rilasciate ne lil contenuto delle variabili puntatore.
 È possibile commettere errori continuando ad utilizzare il puntatore dopo il delete, assegnandogli il valore predefinito NULL. Se il puntatore riferisce ad una memoria allocata con dimensione il delete va specificato con una coppia di parentesi quadre senza indicarne la dimensione:
-
+```c++
 delete[] v;
-
-Operazioni sui puntatori
+```
+## Operazioni sui puntatori
 Un puntatore è una variabile come tutte le altre, dunque il suo valore può essere manipolato dagli operatori, passato come argomento a una funzione e usato come indice in un ciclo. Il suo valore è trattato come un indirizzo e viene sempre considerato come un valore intero positivo. Le operazioni sono gestite dal compilatore perché dipendono dal loro tipo e in particolare dalla loro dimensione (es. aggiungendo 1 a un puntatore double si ottiene un incremento di 8 byte). Ad un puntatore può essere assegnata la costante NULL per indicare l’assenza di riferimento.
 
 Un puntatore ed un intero possono essere sommati e sottratti:
+```c++
 punt + n;   // ennesimo elemento che segue quello puntato da n
 punt++   //prossimo elemento che segue punt, punt viene aggiornato
 (*punt)++  // incrementa di uno all’elemento puntato da punt
 (*punt) + n  // incrementa di n l’elemento puntato da punt
 (*punt) = 5  // assegna il valore 5 all’elemento puntato da punt
-
+```
 La sottrazione tra puntatori è ammissibile, ad esempio, se punt1 e punt2 puntano alla stessa locazione. Se punt1<punt2 allora punt2 - punti1 + 1 è il numero di elementi tra punt1 e punt2.
 
-Puntatori e vettori
+## Puntatori e vettori
 Nel linguaggio C/C++ il nome di un array è il puntatore alla prima locazione di memoria occupata dall’array. Il nome dell’array senza parentesi quadre indica l’indirizzo inziale dell’array che coincide con l’indirizzo del suo primo elemento. La dichiarazione di array ha quindi l’effetto di definire implicitamente il nome dell’array di tipo puntatore e come tale se ne può assegnarne il contenuto ad un’altra variabile dello stesso tipo puntatore.
-
+```c++
 int v [10];
 int* punt;
 
 punt = v;  // assegna a punt l’indirizzo della prima locazione di memoria occupata dal vettore
 
 punt = &v [6] //assegna a punt l’indirizzo del settimo elemento del vettore, in maniera equivalente a punt=v+6
+```
 
-Differenza tra nomi array e puntatori
+## Differenza tra nomi array e puntatori
 I nomi degli array e i puntatori non sono identici. Un puntatore è una variabile che contiene un valore, un array è un identificatore che è usato: con le parentesi quadre per indicare un elemento dell’array; da solo per indicarne l’indirizzo inziale dell’array.
 Qualsiasi operazione effettuabile indicizzando un vettore può essere eseguita tramite puntatori:
 v[1] è equivalente a *(v+1)
@@ -837,7 +778,7 @@ Il puntatore è la variabile, l’array l’identificatore.
 Puntatori a Record
 Come per un qualsiasi altro tipo anche per le strutture si può definire un puntatore ad esse.
 Definita la struttura:
-
+```c++
 struct coordinate {
      float x;
      float y;
@@ -848,64 +789,69 @@ struct coordinate* pun_punto; //punt_punto punta ad una struttura di tipo coordi
 pun_punto = 8 punto;  /* assegna al puntatore l’indirizzo di memoria di una variabile dello stesso tipo prelevandolo da un’altra struttura  */
 
 pun_punto = new(coordinate) /* assegna al puntatore l’indirizzo di memoria di una variabile dello stesso tipo allcoandolo dinamicamente */
-
+```
 
 Tramite i puntatori a record si accede ai campi della struttura con le seguenti notazioni equivalenti:
-
+```c++
 *(pun_punto).x
 // oppure, usabile solo per puntatori a strutture:
 pun_punto -> x
-
-Puntatori di puntatori
+```
+## Puntatori di puntatori
 I puntatori possono essere associati a qualsiasi tipo di variabile, compreso un puntatore stesso. Il codice:
-
+```c++
 nome_tipo ** nome_punt;
-
+```
 dichiara una variabile di tipo puntatore a un puntatore. nome_punt contiene l’indirizzo (punta) di un puntatore che a sua volta contiene (punta) l’indirizzo del registro di memoria contenente il valore di tipo nome_tipo.
-
+```c++
 char ** punt_a_punt_char;  // puntatore di puntatore a carattere
 int ** punt_a_punt_int;  // puntatore di puntatore a intero
-
+```
 I puntatori di puntatori possono essere utilizzati per allocare dinamicamente matrici di dimensione N x M; quest’ultima può essere vista come un vettore di N elementi ognuno dei quali è un vettore di M elementi. Basta allocare dinamicamente i due vettori: il vettore N è un puntatore di puntatori e ognuno di questi è un puntatore agli altri vettori di M elementi.
 Una matrice NxM viene rappresentata in memoria per righe: per M[3][2]  
 Data una matrice RigheXColonne, per accedere all’elemento di indice (r, c) basta considerare la relazione:
+```c++
 *(M+(r*colonne)+c))
-
-Parametri formali di tipo strutturato
+```
+##Parametri formali di tipo strutturato
 C++ prevede che possano essere passati ad una funzione variabili strutturate (record, struct e array). In generale il nome di un vettore è l’indirizzo al primo elemento del vettore, dunque il primo indirizzo di questo. Se ad una funzione passiamo il nome di un vettore, stiamo effettuando un passaggio per riferimento. Ogni funzione che opera su un vettore potenzialmente ne può cambiare il contenuto in quanto il passaggio è sempre per riferimento.
-
+```c++
 float vet[100]
 
 // Possiamo definire una procedura con vet tra i suoi parametri formali nei seguenti modi:
 
 void calcola(float vet[100], int n); // dichiaraizone completa
 void calcola(float vet[], int n); // dichiarazione incompleta
+```
 
 Non è necessario dichiarare la cardinalità massima, in quanto il vettore è il puntatore ad un’area di memoria. 
 Per non andare a modificare i valori dell’array si può lavorare con una copia del vettore. Un altro modo, più valido, per non modificare i valori è quello di anticipare al nome della variabile passata la keyword const. Opera sul vettore ma non ne cambia i valori all’uscita:
-
+```c++
 void calcola(const float v[], int n);
-
+```
 Le matrici sono puntatori ad un’area di memoria che viene linearizzata. Lo stesso discorso, quindi, vale anche per le matrici, che vengono sempre passate per riferimento.
 
 Nel caso di allocazione statica e passaggio di una matrice in una funzione deve essere necessariamente riportato il numero massimo di colonne.
-
+```c++
 // Il prototipo della procedura avente intestazione:
 void funzione(float vettore[], float matrice[] [30]),
 // è:
 void funzione [float [], float [] [30]);
-
-Strutturazione dei programmi con prototipi di funzioni
+```
+## Strutturazione dei programmi con prototipi di funzioni
 I prototipi consentono una strutturazione diversa del programma che semplifica l’uso delle funzioni. In testa al main vengono dapprima elencati i prototipi di tutte le funzioni senza doversi preoccupare del loro ordine; in coda vengono invece riportate le dichiarazioni complete delle funzioni anche in questo caso senza preoccuparsi dell’ ordine.
 
-Librerie
+## Librerie
 Le librerie sono raccolte che permettono al programmatore di utilizzare ciò che gli serve senza dover effettuare nuovamente la traduzione del codice. Le funzioni usate hanno infatti un funzionamento già dimostrato e quindi corretto. Le librerie permettono il riuso delle funzioni. Si evita di avere programmi molto lunghi. Il codice può essere organizzato in file differenti e il programma principale, contenente il main, è costituito dal solo codice dell’applicazione specifica con in testa il riferimento a tutte le librerie invocate.
 
 Per richiamare una libreria basta utilizzare la direttiva include:
-#include <filename>       
+```c++
+#include <filename>  
+```
 oppure
+```c++
 #include “filename”
-
+```
 La differenza tra le due modalità serve a specificare come cercare il file di libreria con estensione .h: nel primo caso il compilatore “cerca” il file nelle cartelle scelte dall’ambiente di sviluppo; nel secondo caso il compilatore cerca il file nella cartella corrente a meno che non venga aggiunto il percorso del file system in cui trovare il file.
 
 In genere quando si usano le librerie si hanno due file distinti:
