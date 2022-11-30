@@ -21,7 +21,7 @@ Queste direttiva, così come anche #define, vanno sempre prima del main.
 
 ## using namespace std;
 Utilizzata per aiutare il compilatore ad includere una parte della libreria iostream, detta standard.
-Se non utilizziamo using namespace std, dobbiamo andare a specificare per ogni riga la libreria del comando.
+Se non utilizziamo using namespace std, dobbiamo andare a specificare per ogni riga la libreria del comando:
 ```c++
 std::cout<<“Prova”;
 ```
@@ -37,29 +37,33 @@ Come ultima istruzione viene chiamata la funzione system("pause"). Serve semplic
 ## Alcuni comandi:
 
 ### endl
-endl sta a significare end of line e fa tornare a capo il testo che abbiamo scritto tramite cout. Senza viene tutto attaccato.
+endl sta ad indicare "end of line" e fa tornare a capo il testo che abbiamo scritto tramite cout. Senza viene stampat tutto sulla stessa riga.
 
 ### cout
-cout è un’istruzione della libreria <iostream>. Trasferisce sul terminale tutto quello che si trova alla destra dell’operatore di redirezione (<<). cout apre uno stream, un canale di comunicazione, verso il terminale.
+cout è un’istruzione della libreria "<iostream>". Trasferisce sul terminale tutto quello che si trova alla destra dell’operatore di redirezione (<<). cout apre uno stream, un canale di comunicazione, verso il terminale:
 ```c++
 cout<<“Esempio”;
 ```
-“\n” va a capo mentre “\t” aggiunge una tabulazione.
 
 ### cin
-cin è un’istruzione della libreria <iostream>. Legge il primo valore in coda dallo standard input (ciò che viene inserito nel terminale tramite tastiera).
+cin è un’istruzione della libreria "<iostream>". Legge il primo valore in coda dallo standard input (ciò che viene inserito nel terminale tramite tastiera).
 L’operatore di redirezione utilizzato è “>>” 
+```c++
+inx x;
+...
+cin >> x;
+```
 
 ### Commenti
-Con // commento una sola riga.
-Con /*    */ commento più righe, commento multilinea.
+Con // viene commentata una sola riga.
+Con /*    */ vengono commentate più righe, commento multilinea.
 
-Ogni istruzione va terminata con un punto e virgola.
+> :warning: **Ogni istruzione va terminata con un punto e virgola.**
 
 ## Simboli speciali
-{} delinatori 
-; 
-<< indicatore di redirezione 
+- {} delinatori 
+- ; 
+- << indicatore di redirezione 
 
 ### Esempio di codice con il cout:
 ```c++
