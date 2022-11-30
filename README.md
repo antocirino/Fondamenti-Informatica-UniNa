@@ -1,8 +1,8 @@
 # C++ - Fondamenti di informatica - UniNa
 
 ## Indice:
-- [Algoritmi vettori](https://github.com/antocirino/fondamenti_informatica/blob/main/algoritmi_vettore.md).
-- [Algoritmi matrici](https://github.com/antocirino/fondamenti_informatica/blob/main/algoritmi_matrice.md).
+- [Algoritmi vettori](https://github.com/antocirino/fondamenti_informatica/blob/main/algoritmi_vettore.md)
+- [Algoritmi matrici](https://github.com/antocirino/fondamenti_informatica/blob/main/algoritmi_matrice.md)
 
 
 
@@ -14,7 +14,7 @@ Un programma in C++ assumerà sempre la seguente struttura:
 using namespace std;
 int main() {
   //programma
-Return 0;
+return 0;
 }
 ```
 
