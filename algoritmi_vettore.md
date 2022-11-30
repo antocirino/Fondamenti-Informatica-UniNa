@@ -104,7 +104,7 @@ int ricercaMinimoVettore (int vettore[], int riemp) {
 }
 ```
 
-## Aggiunngere elemento in un vettore
+## Aggiungere elemento in un vettore
 Prototipo funzione:
 ```c++
 int aggiungiElementoVettore (int [], int &, int, int);
