@@ -1,62 +1,65 @@
-# fondamenti_informatica
-
-C++
+# C++ - Fondamenti di informatica - UniNa
 
 Un programma in C++ assumerà sempre la seguente struttura:
 
+```c++
 #include <iostream>
 using namespace std;
 int main() {
   //programma
 Return 0;
 }
+```
 
-#include <iostream>
+## #include <iostream>
 #include è la direttiva in quanto è usata dal compilatore per capire come utilizzare identificatori speciali come main e cout. <iostream> è una libreria, dice al programma c la libreria che deve utilizzare per creare un canale di comunicazione tra input e output. Serve per usare funzioni come cin e cout.
 
 Queste direttiva, così come anche #define, vanno sempre prima del main.
 
-using namespace std;
+## using namespace std;
 Utilizzata per aiutare il compilatore ad includere una parte della libreria iostream, detta standard.
 Se non utilizziamo using namespace std, dobbiamo andare a specificare per ogni riga la libreria del comando.
-es.
+```c++
 std::cout<<“Prova”;
+```
 
-int main () {
-//programma
-return 0;
-}
+## int main () {}
 Questo blocco è detto main, costituisce il programma principale. Viene eseguito una volta che viene eseguita l’applicazione. Il main ha sempre davanti a sé un int per indicare il fatto che questa funzione restituisce un numero intero.
 
-return 0;
-Il valore restituito dalla funzione per default è sempre zero. Questo significa che la funzione è andata a buon fine (-1, -2 ecc sono errori).
+## return 0;
+Il valore restituito dalla funzione, per default è sempre zero. Questo significa che la funzione è andata a buon fine (-1, -2 ecc sono errori).
 
 Come ultima istruzione viene chiamata la funzione system("pause"). Serve semplicemente per evitare di chiudere automaticamente la finestra a fine esecuzione del programma, e quindi per dare la possibilità di leggere l'eventuale output e chiudere la finestra del programma solo dopo l'ulteriore pressione di un tasto.
 
-endl
+## Alcuni comandi:
+
+### endl
 endl sta a significare end of line e fa tornare a capo il testo che abbiamo scritto tramite cout. Senza viene tutto attaccato.
 
-cout
+### cout
 cout è un’istruzione della libreria <iostream>. Trasferisce sul terminale tutto quello che si trova alla destra dell’operatore di redirezione (<<). cout apre uno stream, un canale di comunicazione, verso il terminale.
-es.
+```c++
 cout<<“Esempio”;
+```
 “\n” va a capo mentre “\t” aggiunge una tabulazione.
-cin
+
+### cin
 cin è un’istruzione della libreria <iostream>. Legge il primo valore in coda dallo standard input (ciò che viene inserito nel terminale tramite tastiera).
 L’operatore di redirezione utilizzato è “>>” 
 
-Commenti
+### Commenti
 Con // commento una sola riga.
 Con /*    */ commento più righe, commento multilinea.
 
 Ogni istruzione va terminata con un punto e virgola.
 
-Simboli speciali
+## Simboli speciali
 {} delinatori 
 ; 
 << indicatore di redirezione 
 
-Codice 1:
+### Codice 1:
+```c++
 #include <iostream>
 
 using namespace std;
@@ -69,18 +72,18 @@ int main() {
   cout<<"Ho imparato a gestire il cout";
   return 0;
 }
+```
 
-Variabili
+## Variabili
 Un contenitore di valori (celle di memoria). Questo valore può cambiare durante l’esecuzione del programma. Il tipo di dato che può contenere deve essere dichiarato all’inizio. Ogni variabile viene memorizzata in memoria.
 
-Modalità di utilizzo
-Innanzitutto dobbiamo definire/dichiarare una variabile. Quando lo facciamo dobbiamo anteporne il tipo
-int a, b;
-Abbiamo definito due numeri interi, a e b.
-Dopo averla definita possiamo assegnarle un valore con 
-a = 1;
+### Modalità di utilizzo
+Innanzitutto dobbiamo definire/dichiarare una variabile. Quando lo facciamo dobbiamo anteporne il tipo ```c++ int a, b; ```
+In questo modo abbiamo definito due numeri interi, a e b.
+Dopo averli definiti possiamo assegnare un valore alla variabile con 
+```c++ a = 1; ```
 Il valore può poi essere utilizzato per eseguire dei calcoli
-b = a + 1;
+```c++ b = a + 1; ```
 
 Non possiamo utilizzare una variabile se prima non è stata dichiarata!
 
@@ -91,37 +94,41 @@ Gli identificatori (le variabili) devono sempre iniziare con un carattere alfabe
 C è case sensitive: fa differenza fra lettera maiuscola e minuscola!
 
 C ha a disposizione alcuni tipi di variabili semplici:
+![image](https://user-images.githubusercontent.com/112080821/204814814-90c207f3-bd95-4104-a3b6-73ee60183b4f.png)
+
  
 Con l’int vengono identificati numeri interi. Sono rappresentati su 2 byte. L’intervallo di rappresentazione non è simmetrico —> viene utilizzata la rappresentazione per complemento a 2.
 
 Non è detto gli interi necessitino dello stesso numero di byte su tutte le architetture. Un intero su un computer può essere rappresentato con un numero di byte differenti rispetto agli interi di un’altra macchina. Per sapere quanti byte quella macchina sta utilizzando possiamo utilizzare l’istruzione sizeof(type).
 
-Questo codice, a seconda del programma che utilizziamo (es. moodle, neatbeans ecc…) ci restituisce un numero di byte differenti. Su neatbeans (su un mac) il long int necessita 8 byte mentre su moodle 4 byte.
+Questo codice, a seconda del programma che utilizziamo (es. moodle, neatbeans ecc…) ci restituisce un numero di byte differenti. Su neatbeans (su un mac) il long int necessita 8 byte mentre su moodle 4 byte:
+```c++
 #include <iostream>
-
 using namespace std;
-int main(int argc, char** argv) {
-    /*
-    Programma che restituisce il numero di bytes occupati in memoria da un tipo primitivo o una variabile
-    */
-    int intero;
-    bool booleano;
-    float reale;
-    
-    //Esempi di sizeof applicati a una variabile
-    cout << "Per memorizzare una variabile intera ho bisogno di "<<sizeof(intero) << " byte"<<endl;
-    cout << "Per memorizzare una variabile booleana ho bisogno di "<<sizeof(booleano) << " byte"<<endl;
-    cout << "Per memorizzare una variabile reale a s.p. ho bisogno di "<<sizeof(reale) << " byte"<<endl;
-    
-    //In generale sizeof può essere applicato direttamente al tipo di dato senza dover dichiarare una variabile.
-    cout << "Per memorizzare una variabile long int ho bisogno di "<<sizeof(long int) << " byte"<<endl;
-    cout << "Per memorizzare una variabile reale a d.p. ho bisogno di "<<sizeof(double) << " byte"<<endl;
-    cout << "Per memorizzare una variabile intera senza segno ho bisogno di "<<sizeof(unsigned int) << " byte"<<endl;
-    
-    return 0;
-}
+int main() {
+/*
+Programma che restituisce il numero di bytes occupati in memoria da un tipo primitivo o una variabile
+*/
+int intero;
+bool booleano;
+float reale;
 
-Swap di variabili:
+//Esempi di sizeof applicati a una variabile
+cout << "Per memorizzare una variabile intera ho bisogno di "<<sizeof(intero) << " byte"<<endl;
+cout << "Per memorizzare una variabile booleana ho bisogno di "<<sizeof(booleano) << " byte"<<endl;
+cout << "Per memorizzare una variabile reale a s.p. ho bisogno di "<<sizeof(reale) << " byte"<<endl;
+
+//In generale sizeof può essere applicato direttamente al tipo di dato senza dover dichiarare una variabile.
+cout << "Per memorizzare una variabile long int ho bisogno di "<<sizeof(long int) << " byte"<<endl;
+cout << "Per memorizzare una variabile reale a d.p. ho bisogno di "<<sizeof(double) << " byte"<<endl;
+cout << "Per memorizzare una variabile intera senza segno ho bisogno di "<<sizeof(unsigned int) << " byte"<<endl;
+
+return 0;
+}
+```
+
+### Programma per lo swap di variabili:
+```c++
 #include <iostream>
 using namespace std;
 int main() {
@@ -141,23 +148,29 @@ int main() {
  cout << "Dopo lo scambio v1=" << v1 << " e v2=" << v2;
 return 0;
 }
+```
+
 Se abbiamo due variabili V1 e V2 e vogliamo scambiare il valore di queste due ne necessitiamo una terza V3, variabile temporanea, temp, o variabile di appoggio, pivot, per memorizzare il valore di una delle due.
 
 Quando dichiariamo una variabile definiamo anche il tipo. Quando scrivo int v1 v1 è una variabile di tipo intero che può contenere solo un certo range di valori.
 Devo avere un’espressione che è dello stesso tipo o compatibile con il tipo della variabile. Quando assegniamo a delle variabili delle espressioni che non sono dello stesso tipo ma sono compatibili si potrebbero avere perdite di informazioni (es. int v1; e v1=8.99 —> v1 diventa 8).
 
-Type casting o coercizione
+## Type casting o coercizione
 In un’istruzione di assegnazione l’espressione a secondo membro deve essere dello stesso tipo o di tipo compatibile con quello della variabile a primo membro. Sono compatibili tra loro i tipi numerici a patto che il valore che si assegna possa essere contenuto nella variabile che lo riceve. Ad esempio tutti i valori interi possono essere assegnati a variabili reali ma non viceversa. Anche se avviene ci può essere perdita di informazione. Il typecasting, detto anche coercizione, forza una variabile di un tipo ad essere di un altro tipo. 
 Ci sono due modalità equivalenti di casting:
 1.	Casting (esplicito): forzo una variabile ad essere trattata come un’altra variabile. Forzo la double m ad essere trattata come intero:
+```
 double m;
 int n = (int) m;
+```
 2.	Conversione implicita: assegniamo ad una variabile di un certo tipo un valore che è di tipo differente
+```c++
 int x = 3.64;
+```
 
-es.
+Esempi di type casting:
+```c++
 #include <iostream>
-
 using namespace std;
 
 int main(int argc, char** argv) {
@@ -206,22 +219,28 @@ cout<<intero<<"\t\t"<<logico<<endl;
 
 return 0;
 }
+```
 
 Il booleano è memorizzato su 1 byte (a prescindere dalla macchina) nonostante siano 2 valori.
 In C tutti i valori che sono diversi dallo zero vengono considerati true. Solo lo zero viene considerato falso. In C 88 è vero, 12 è vero, 0 è falso.  Lo 0 booleano diventa 1 in intero e viceversa.
 
-
-
-
-
-Costanti
+## Costanti
 Possiamo definire delle costanti. Identificano valori che non cambiano nel tempo (il peso di una variabile è lo stesso di una costante). Esistono due modi:
-1.	Definizione (tramite identificatore e tipo): const nome-tipo nome-costante valore es. const int 75;
-2.	Assegnazione (scrittura costante) es. numero = -103;
+1.	Definizione (tramite identificatore e tipo): const nome-tipo nome-costante valore 
+```c++
+const int 75;
+```
+2.	Assegnazione (scrittura costante) es. 
+```c++
+numero = -103;
+```
 
 Un’altra modalità attraverso la quale possiamo definire costanti è tramite una direttiva, #define. In questo modo non dobbiamo riportare il tipo di variabile. Dopo non utilizziamo ;. Questa direttiva va inserita prima del main. #define non fa nient’altro che eseguire una sostituzione tra il nome dell’identificatore e il corrispettivo valore. const invece crea spazio di memoria per memorizzare il valore della costante. E’ come se #define non occupasse memoria. L’utilizzo di uno piuttosto che l’altro dipende dal problema che ci si presenta. 
+```c++
+#define piGreco 3.14
+```
 
-Operazioni
+## Operazioni
 Tra variabili, tra costanti e tra variabili e costanti è possibile effettuare operazioni algebriche (tra numeri), logiche (in genere tra i booleani) e di confronto (per la definizione di proposizioni logiche, < o > e altro).
 
 Operatori algebrici
@@ -240,27 +259,31 @@ Operatori relazionali
 Restituiscono un vero o un falso
 ==: uguaglianza, per determinare se due valori sono uguali
 es.
+```c++
 int x = 3;
 x == 3
+```
 Restituisce vero in quanto confronto due valori
-
+```c++
 int x = 3;
 x == 5
+```
 Restituisce falso
-
+```c++
 int x=3;
 x=5
-Assegno 5 a x!! Sbagliato.
-!=: diversità, per determinare se due valori sono diversi
->: per determinare se il valore a sinistra precede quello a destra (o è più grande)
-<: per determinare se il valore a sinistra segue quello a destra (o è più piccolo)
->=: per determinare se il valore a sinistra è più grande o uguale di quello a destra
-<=:  per determinare se il valore a sinistra è più grande o uguale di quello a sinistra
+```
+Sbagliato in quanto non stiamo verificando se i valori sono uguali ma sto assegnando 5 a x!
+
+- ```!=```': diversità, per determinare se due valori sono diversi
+- ```>```: per determinare se il valore a sinistra precede quello a destra (o è più grande)
+- ```<```: per determinare se il valore a sinistra segue quello a destra (o è più piccolo)
+- ```>=```: per determinare se il valore a sinistra è più grande o uguale di quello a destra
+- ```<=```:  per determinare se il valore a sinistra è più grande o uguale di quello a sinistra
 
 
-
-
-Esercizio operazioni algebriche:
+### Esercizio operazioni algebriche:
+```c++
 #include <iostream>
 using namespace std;
 int main() {
@@ -282,43 +305,24 @@ cout << "(x + 3) * y = " << op2 <<endl;
 cout << "x/y + 3 = "  << op3 << endl;  
 return 0;  
 }
+```
 
-Istruzioni sequenziali e diagrammi di flusso
+## Istruzioni sequenziali e diagrammi di flusso
 In C ogni blocco sequenziale si trova racchiuso tra parentesi graffe.
 Per gli algoritmi possiamo utilizzare i diagrammi di flusso per schematizzare le istruzioni da eseguire.
 Nel diagramma di flusso il trapezio indica l’inserimento manuale dei valori, il quadrato indica un’operazione, e il simbolo con la freccia a sinistra indica la rappresentazione di ciò che è contenuto al suo interno.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Regole di precedenza degli operatori
+## Regole di precedenza degli operatori
 In C++, per convenzione, l’operatore di moltiplicazione ha precedenza rispetto all’operatore di addizione. Per fare in modo che le operazioni siano effettuate con ordine diverso sarà sufficiente introdurre delle parentesi tonde.
-Si definisce una regola di precedenza degli operatori. Gli operatori hanno delle priorità prestabilite da C++. L’uguaglianza, l’assegnazione ha la priorità più bassa. 
+Si definisce una regola di precedenza degli operatori. Gli operatori hanno delle priorità prestabilite da C++. L’uguaglianza, l’assegnazione ha la priorità più bassa.
+![image](https://user-images.githubusercontent.com/112080821/204821533-36d07d6e-842f-49a2-87f1-7d775117b832.png)
 I numeri che hanno un indice più basso in esecuzione hanno la priorità più alta.
 
-Operatori di incremento e auto decremento
+## Operatori di incremento e auto decremento
+```c++
 int i = 0;
 i = i +1;
+```
 Dichiariamo una variabile e allochiamo uno spazio di memorizzazione 
 i diventa 1 e assegno 1 a i. i viene incrementato di 1. Il motivo è una conseguenza della regola di priorità degli operatori (il + viene eseguito prima del =).
 
@@ -330,18 +334,21 @@ Auto incremento prefisso: ++i
 Auto incremento postfisso: i++
 
 Con la notazione prefissa si forza l’incremento o il decremento prima del suo uso. Altrimenti si forza l’incremento dopo l’utilizzo della variabile.
+```
 int i = 3;
 int y;
 y = i;
 cout << i;
 cout << y;
-
+```
+```
 //i=3 e y=3.	int i = 3;
 int y;
 y = i++;
 cout << i;
 cout << y;
-
+```
+```
 //i=4 e y=3.	int i = 3;
 int y;
 y = ++i;
@@ -349,39 +356,36 @@ cout << i;
 cout << y;
 
 //i=3 e y=4.
-
+```
 Se ++ si trova dopo, uso prima il valore e poi l’incremento. Se ++ si trova prima, uso prima l’incremento e poi il valore.
 
-I costrutti di controllo o costrutti condizionali (o di selezione)
-Alcuni comandi vengono eseguiti solo se determinati predicati logici sono veri. In alcuni casi se il predicato logico è falso vengono eseguiti altri comandi. IF-THEN-ELSE
+## I costrutti di controllo o costrutti condizionali (o di selezione)
+Alcuni comandi vengono eseguiti solo se determinati predicati logici sono veri. In alcuni casi se il predicato logico è falso vengono eseguiti altri comandi. 
+IF-THEN-ELSE
 
-
-
-IF-THEN
+### IF-THEN
 
 Nel rombo si riporta la condizione. Se questa è vera allora si esegue il codice del ramo then. Se la condizione è falsa, esco dall’if e non viene eseguito nulla.
 In C usiamo if in questo modo:
-
+```c++
 if (condizione da valutare) {
    codice da eseguire quando la condizione è vera;
 }
+```
 
-
-
-
-IF-THEN-ELSE
+### IF-THEN-ELSE
 
 Rispetto al caso precedente abbiamo anche il blocco del codice else. Se la condizione è vera eseguo il blocco dell’if altrimenti quello dell’else.
-
+```c++
 if (condizione da valutare) {
     codice quando la condizione è vera;
 } else {
     codice quando la condizione è falsa;
 }
+```
 
-
-
-Esempio codice:
+Esempio codice con costrutti:
+```c++
 #include <iostream>
 using namespace std;
 
@@ -397,29 +401,19 @@ int main() {
   cout << endl << "Fine programma";
   return 0;
 }
-
-Nesting degli if
+```
+### Nesting degli if
 
 Se la prima condizione è vera entro nel ramo dell’if. Se è falsa entro nel secondo if.
 Non innestare mai più di 3 if!
 
-
-
-
-
-
-
-
-
-
-
-Switch-case
+### Switch-case
 Switch-case ci permette di risolvere il problema dei troppi innesti. Lo switch inizia con la forma
 switch (espressione intera)
 Espressione intera significa che dobbiamo inserire una variabile di riferimento che può assumere un valore intero o anche un carattere (in quanto il carattere ha un corrispettivo intero). Dopo si trovano tutti i possibili casi.
 
 Se il blocco termina con break allora il programma esce dallo switch, altrimenti vengono eseguiti anche i blocchi seguenti fino ad un break o fino alla fine. Se nessun blocco corrisponde ad un valore uguale a quello dell’istruzione switch viene eseguito il blocco in default.
-
+```c++
 switch (espressione intera)
 {
       case (valore costante 1):
@@ -431,38 +425,39 @@ switch (espressione intera)
      default: 
              sequenza di istruzioni;
 }
+```
 
 Se vogliamo fare in modo che in corrispondenza di più casi venga eseguito una determinata sequenza di istruzioni, possiamo utilizzare:
-
+```c++
 switch (x) {
    case 1:
    case 2:
            sequenza di istruzioni;
    break;
+```
 
-Costrutti iterativi e ciclici
+## Costrutti iterativi e ciclici
 Ci permettono di andare a rieseguire una sequenza di istruzione per un certo numero di volte o fino al verificarsi di un determinato evento. Sono di 3 tipi (1. e 2. iterativi, 3. iterativo ciclico):
 1. REPEAT - UNTIL
 2. WHILE - DO
 3. FOR DO
 Nei primi due è necessario che ci siano delle condizioni affinché avvenga la ripetizione. Con il terzo già dobbiamo sapere quante volte vogliamo che l’istruzione sia eseguita.
 
-While, do…while, for
+### While, do…while, for
 Il ciclo while impone che l’esecuzione del blocco sia ripetuta finché la condizione non diventa falsa.
 Se la condizione è falsa la sequenza non viene eseguita. Se è true le istruzioni vengono ripetute finché la condizione è vera.
-
+```c++
 while (condizione) {
    istruzioni;
 }
-
+```
 Il ciclo do while, detto anche “repeat until”, esegue le istruzioni fintanto che la condizione è vera. La differenza sta nel fatto che, anche se la condizione è falsa, la sequenza di istruzioni viene eseguita almeno una volta.
 Se nel while e nel while…do non c’è nessuna condizione che cambia, il ciclo non cambia mai.
-
+```c++
 do {
    istruzioni;
 } while (condizione)
-
-
+```
 Il ciclo for tra parentesi tonde presenta tre campi, generalmente facoltativi:
 - inizializzazione: viene inizializzata la variabile sulla quale opera il ciclo for.
 - condizione: tiene conto della variabile inizializzata.
@@ -470,14 +465,16 @@ Il ciclo for tra parentesi tonde presenta tre campi, generalmente facoltativi:
 
 While e for sono strutture equivalenti.
 
-Il tipo char
+## Il tipo char
 Quando facciamo riferimento a questo tipo di , il carattere deve trovarsi tra apici.
 C++ utilizza la tabella ASCII. E’ possibile passare da intero a char tramite coercizione.
 
-Sequenza di Escape
+## Sequenza di Escape
 In C++ ci sono alcune sequenze dette di Escape, servono a rappresentare alcuni caratteri particolari all’interno di una stringa. Possiamo utilizzarle all’interno di una qualsiasi stringa. Sono rappresentate dallo backslash (\) seguito da una sequenza di uno o più caratteri ammessi da C++.
 
-Programma e sottoprogramma
+![image](https://user-images.githubusercontent.com/112080821/204822065-18827eea-46cd-4fd3-b4e2-060d5b1ce27c.png)
+
+## Programma e sottoprogramma
 L’attivazione del modulo attraverso il nome viene anche detto richiamo. La sequenza che contiene il nome viene anche detto
 Il main non può essere mai richiamato da altri.
 
@@ -485,53 +482,53 @@ Il main è l’unità che si interfaccia direttamente con il sistema operativo. 
 La funzione main è il punto da cui comincia l’esecuzione, indipendentemente dalla posizione. La funzione main ha dei parametri d’ingresso che servono per interagire con il sistema operativo e restituisce solitamente un valore intero per andare a codificare eventuali errori che si sono riscontrati durante l’esecuzione. Solitamente gli errori sono indicati tramite numeri negativi 
 Tutti i programmi devono contenere la funzione main!
 
-Forme parametriche delle funzioni
+## Forme parametriche delle funzioni
 La forma parametrica consente di scrivere un modulo usando variabili generiche. Solo all’atto dell’attivazione del modulo, con adeguati meccanismi, vengono associati ai parametri i dati effettivi sui quali il sottoprogramma deve effettuare i propri calcoli. 
 -	Parametri formali: servono a scrivere il sottoprogramma in una forma generalizzata;
 -	Parametri attuali (o effettivi): associati ai formali quando il sottoprogramma viene attivato.
 
 Per ogni sottoprogramma parametri attuali e formali devono corrispondere in numero e tipo!
 
-
-
-Definizione di un sottprogramma in C++
+## Definizione di un sottprogramma in C++
 Necessitiamo di:
 -	Intestazione. Specifica due informazioni: il nome della funzione, che deve essere accompagnato da un tipo di ritorno (int main); l’elenco dei parametri formali (ognuno deve avere il proprio tipo), opzionale.
 -	Corpo: sequenza di istruzioni eseguite una volta che il sottoprogramma viene eseguito dalla funzione chiamante.
 In un sottoprogramma possono essere una o più variabili, dette locali per il fatto che esistono esclusivamente nel sottoprogramma. Principio di località degli identificatori: garantisce il completo disaccoppiamento completo tra programma chiamante e sottoprogramma garantendo l’autonomia di quest’ultimo.
 
-Valore di ritorno delle funzioni
+## Valore di ritorno delle funzioni
 Ogni modulo restituisce comunque un risultato. Questo è a sua volta associato al nome della funzione e pertanto nell’intestazione della funzione ne va specificato il tipo.
 All’interno di una funzione deve essere presente:
-
+```c++
 return <espr>;
-
+```
 espr può essere una variabile, una espressione numerica o una costante.
 L’istruzione return termina immediatamente l’esecuzione della funzione! Tutto il codice dopo, codice morto, non viene mai eseguito.
 Il tipo di espr deve essere compatibile con quello indicato nella intestazione per il nome della funzione (int nel caso del main).
 
 Le funzioni devono essere definite prima del main per poter essere richiamate.
 
-Void
+### Void
 Funzione senza valore di ritorno, non restituisce nessun risultato di calcolo. Una funzione che non restituisce risultato viene detta procedura. Si può dunque omettere la keyword return (può tuttavia utilizzarlo per pulizia di codice, return senza nulla vicino).
 Le funzioni di tipo void non restituiscono un valore ma possono essere sfruttate per andare a modificare lo stato delle variabili, tramite sostituzione per riferimento.
 La sostituzione per valore va usata quando i parametri formali sono solo di ingresso al sottoprogramma; in tutti gli altri casi, quando sono di uscita ma anche di ingresso e uscita contemporaneamente, va usata la sostituzione per riferimento. 
 
-Visibilità o scope
+### Visibilità o scope
 La visibilità di un identificatore rappresenta le regole che un linguaggio definisce per poter utilizzare in maniera adeguata gli identificatori di variabili o di funzioni.
 Una variabile per essere utilizzata deve essere prima dichiarata e può quindi essere usato solo dalle istruzioni che la seguono -> C++ segue un ordine lessico grafico.
 Se la dichiarazione è interna ad un blocco (insieme di istruzioni racchiuse tra parentesi graffe), la variabile non è visibile all’esterno. Se è dichiarata all’esterno è visibile da tutti i blocchi che la seguono ammenoché in uno dei blocchi successivi non viene ridefinita o ridichiarata una nuova variabile con lo stesso nome.
 Sulle variabili locali può agire solo la funzione che l’ha dichiarata. Le funzioni non vedono ciò che è dichiarato in altre funzioni anche se le seguono.
 
-Array o Vettore
+## Array o Vettore
 C++ mette a disposizione delle variabili di tipo semplice. Quando vogliamo lavorare su un numero elevato di variabili, su un insieme di variabili. Possiamo allora definire una variabile strutturata: un contenitore di variabili dello stesso tipo. In C++ una struttura composta di questo tipo viene definito array. Non è nient’altro che una struttura composta che contiene al suo interno tutte variabili dello stesso tipo. L’array ha un nome ma ogni qual volta lo definiamo dobbiamo anche dichiarare staticamente la sua cardinalità massima (n. elementi in esso contenuto):
-
+```c++
 <tipo> nome_array [dimensione]
-
+```
 Quando dichiaro un array di una certa dimensione, l’elaboratore mi alloca lo spazio necessario per andare a contenere un certo numero di elementi dello stesso tipo.
 
 es.
+```c++
 int vettore[5]
+```
 Il vettore può contenere al più 5 elementi interi. Questi elementi si trovano tutti in registri diversi e successivi. Il primo elemento del vettore corrisponde alla prima locazione ed è seguito in modo consecutivo dagli altri
 Per accedere ad un elemento specifico basta indicare l’indice, tra parentesi quadre, dopo il nome dell’array stesso.
 L’indice parte da zero. Se un array ha cardinalità N, l’ultimo elemento ha indice N-1. Per indicare la posizione, tra parentesi quadre, possiamo utilizzare valori costanti, espressioni o variabili ma sempre di tipo intero!
@@ -540,15 +537,18 @@ Riempimento effettivo
 Allocazione statica
 
 es.
-vettore[1]
-vettore [i]
-vettore [c+3]
-
+```c++
+vettore[1];
+vettore [i];
+vettore [c+3];
+```
 L’inizializzazione di un vettore avviene indicando i valori degli elementi tra parentesi graffe separati da virgole.
 
 es.
+```c++
 double v[3]={0.5, -13.25}
 int vett[3]={0} //Inizializza tutti I valori a zero
+```
 
 Come caratteristica di un vettore abbiamo la cardinalità massima e il riempimento. Il riempimento è la quantità di elementi contenuti attualmente all’interno di un vettore.
 La variabile riempimento, riemp, indica quanti elementi sono contenuti all’interno di un vettore. 0< riemp< Card. Max.
@@ -557,36 +557,31 @@ Riemp deve essere al massimo uguale alla dimensione fissata per v, per non gener
 
 Dichiarazione statica: definizione all’inizio del numero massimo di elementi di un certo tipo che il vettore potrà contenere.
 
-Array multidimensionali
+###Array multidimensionali
 Si dichiarano tramite
+```c++
 <Tipo> nome_array [dim1] [dim2]…[dimn];
+```
 Sono strutture in cui sono necessarie più posizioni per identificare un elemento. Una struttura di due dimensioni è anche detta matrice.
 
 Es.
+```c++
 Int mat[2][3]; //dichiara una matrice di 2 righe e 3 colonne
+```
 Tramite mat[i][j] indiciamo l’elemento di posto (i, j) in mat. Per accedere ad un elemento generico utulizziamo: matrice[indice riga] [indice colonna].
 
 Anche gli array bidimensionali vengono disposti
 
 La matrice è bidimensionale, la memoria è unidimensionale. Si esegue quindi la linearizzazione della matrice
 Int mat[2][3] = {1, 2, 3, 4, 5, 6} stabilisce la seguente associazione:
+```c++
 mat [0][0] = 1;
 mat [0][1] = 2;
 mat [0][2] = 3; 
 mat [1][0] = 4;
 mat [1][1] = 5;
 mat [1][2] = 6;
-
-
-
-
-
-
-
-
-
-
-
+```
 
 Algoritmo massimo elemento array
 
