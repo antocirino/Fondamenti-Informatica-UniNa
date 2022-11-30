@@ -68,7 +68,6 @@ Con /*    */ vengono commentate più righe, commento multilinea.
 ### Esempio di codice con il cout:
 ```c++
 #include <iostream>
-
 using namespace std;
 
 int main() {
@@ -371,6 +370,7 @@ Alcuni comandi vengono eseguiti solo se determinati predicati logici sono veri. 
 IF-THEN-ELSE
 
 ### IF-THEN
+![image](https://user-images.githubusercontent.com/112080821/204849266-b2b97a84-222d-4db9-af4f-7a8cdc2c7d2e.png)
 
 Nel rombo si riporta la condizione. Se questa è vera allora si esegue il codice del ramo then. Se la condizione è falsa, esco dall’if e non viene eseguito nulla.
 In C usiamo if in questo modo:
@@ -381,6 +381,7 @@ if (condizione da valutare) {
 ```
 
 ### IF-THEN-ELSE
+![image](https://user-images.githubusercontent.com/112080821/204849289-2f5510fb-18fd-4920-bb06-e9637fe1fe2b.png)
 
 Rispetto al caso precedente abbiamo anche il blocco del codice else. Se la condizione è vera eseguo il blocco dell’if altrimenti quello dell’else.
 ```c++
@@ -410,6 +411,7 @@ int main() {
 }
 ```
 ### Nesting degli if
+![image](https://user-images.githubusercontent.com/112080821/204849331-10eb05f5-716e-4b1b-a0f4-3b3cfe28a264.png)
 
 Se la prima condizione è vera entro nel ramo dell’if. Se è falsa entro nel secondo if.
 Non innestare mai più di 3 if!
