@@ -31,6 +31,9 @@ void inserimentoElementiVettore (int [], int);
 ```
 Cotenuto del main:
 ```c++
+int riemp;
+int v[maxDim];
+...
 cout << "Inserire gli elementi del vettore";
 inserimentoElementiVettore (vettore, riemp);
 ```
