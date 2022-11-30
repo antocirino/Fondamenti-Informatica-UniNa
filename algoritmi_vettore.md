@@ -7,6 +7,8 @@ void riempimento(int &);
 ```
 Cotenuto del main:
 ```c++
+int riemp;
+...
 cout << "Inserire le dimensioni del vettore";
 riempimento(riemp);
 ```
