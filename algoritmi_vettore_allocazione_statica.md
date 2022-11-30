@@ -1,4 +1,4 @@
-# Algoritmi C++ con allocazione statica
+# Algoritmi C++ vettori con allocazione statica
 
 ## Riempimento vettore
 Prototipo funzione:
