@@ -243,3 +243,4 @@ void ordinamentoElementiVettore(int vettore[], int riemp) {
 }
 }
 ```
+# Algoritmi C++ vettori con allocazione dinamica
