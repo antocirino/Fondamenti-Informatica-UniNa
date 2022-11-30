@@ -53,6 +53,9 @@ void stampaVettore (int [], int);
 ```
 Cotenuto del main:
 ```c++
+int riemp;
+int vettore[maxDim];
+...
 cout << "Vettore inserito:";
 stampaVettore (vettore, riemp);
 ```
@@ -72,6 +75,9 @@ int ricercaMassimoVettore (int [], int);
 ```
 Contenuto del main:
 ```c++
+int riemp;
+int vettore[maxDim];
+...
 cout << "Il massimo elemento del vettore è: " << ricercaMassimoVettore (vettore, riemp);
 ```
 Codice funzione:
@@ -94,6 +100,9 @@ int ricercaMinimoVettore (int [], int);
 ```
 Contenuto del main:
 ```c++
+int riemp;
+int vettore[maxDim];
+...
 cout << "Il minimo elemento del vettore è: " << ricercaMinimoVettore (vettore, riemp);
 ```
 Codice funzione:
@@ -116,6 +125,9 @@ int aggiungiElementoVettore (int [], int &, int, int);
 ```
 Contenuto del main:
 ```c++
+int riemp, posizione, elemento, esito;
+int vettore[maxDim];
+...
 cout<<"Immettere la posizione in cui inserire l'elemento"<<endl;
 cin>>posizione;
 cout<<"Inserire l'elemento da inserire"<<endl;
@@ -154,6 +166,9 @@ int rimuoviElementoVettore(int [], int &, int);
 ```
 Contenuto del main:
 ```c++
+int riemp, posizione, esito;
+int vettore[maxDim];
+...
 cout<<"Inserire la posizione dell'elemento da eliminare"<<endl;
 cin>>posizione;
 esito = rimuoviElementoVettore(vettore, riemp, posizione);
@@ -188,6 +203,9 @@ bool ricercaLineareVettore (int [], int , int , int &);
 ```
 Contenuto del main:
 ```c++
+int riemp, elemento, posizioneElemento;
+int vettore[maxDim];
+...
 cout<<"Inerire l'elemento da cercare"<<endl;
 cin>>elemento;
 if(ricercaLineareVettore(vettore, riemp, elemento, posizioneElemento)) {
@@ -219,6 +237,9 @@ Prototipo funzione:
 void ordinamentoElementiVettore(int [], int );
 ```
 Contenuto del main:
+int riemp;
+int vettore[maxDim];
+...
 ```c++
 ordinamentoElementiVettore(vettore, riemp);
 cout<<"Ordinamento..."<<endl;
