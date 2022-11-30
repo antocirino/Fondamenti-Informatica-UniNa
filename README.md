@@ -414,7 +414,8 @@ int main() {
 ![image](https://user-images.githubusercontent.com/112080821/204849331-10eb05f5-716e-4b1b-a0f4-3b3cfe28a264.png)
 
 Se la prima condizione è vera entro nel ramo dell’if. Se è falsa entro nel secondo if.
-Non innestare mai più di 3 if!
+  
+> :warning: Non innestare mai più di 3 if!
 
 ### Switch-case
 Switch-case ci permette di risolvere il problema dei troppi innesti. Lo switch inizia con la forma
@@ -450,7 +451,8 @@ Ci permettono di andare a rieseguire una sequenza di istruzione per un certo num
 1. REPEAT - UNTIL
 2. WHILE - DO
 3. FOR DO
-Nei primi due è necessario che ci siano delle condizioni affinché avvenga la ripetizione. Con il terzo già dobbiamo sapere quante volte vogliamo che l’istruzione sia eseguita.
+  
+> :warning: Nei primi due è necessario che ci siano delle condizioni affinché avvenga la ripetizione. Con il terzo già dobbiamo sapere quante volte vogliamo che l’istruzione sia eseguita.
 
 ### While, do…while, for
 Il ciclo while impone che l’esecuzione del blocco sia ripetuta finché la condizione non diventa falsa.
@@ -468,6 +470,11 @@ do {
 } while (condizione)
 ```
 Il ciclo for tra parentesi tonde presenta tre campi, generalmente facoltativi:
+```c++
+for (int i=0; i<10; i++) {
+  istruzioni
+}
+```
 - inizializzazione: viene inizializzata la variabile sulla quale opera il ciclo for.
 - condizione: tiene conto della variabile inizializzata.
 - variazione: ad ogni passaggio, automaticamente, c’è una variazione della variabile inizializzata. In base alla variazione riusciamo a definire il numero di cicli che devono essere eseguiti (combinando condizione e variazione). In genere vengono definiti come gli operatori di auto incremento e decremento.
@@ -475,11 +482,11 @@ Il ciclo for tra parentesi tonde presenta tre campi, generalmente facoltativi:
 While e for sono strutture equivalenti.
 
 ## Il tipo char
-Quando facciamo riferimento a questo tipo di , il carattere deve trovarsi tra apici.
+Quando facciamo riferimento a questo tipo di variabile, il carattere deve trovarsi tra apici.
 C++ utilizza la tabella ASCII. E’ possibile passare da intero a char tramite coercizione.
 
 ## Sequenza di Escape
-In C++ ci sono alcune sequenze dette di Escape, servono a rappresentare alcuni caratteri particolari all’interno di una stringa. Possiamo utilizzarle all’interno di una qualsiasi stringa. Sono rappresentate dallo backslash (\) seguito da una sequenza di uno o più caratteri ammessi da C++.
+In C++ ci sono alcune sequenze dette di Escape, servono a rappresentare alcuni caratteri particolari all’interno di una stringa. Possiamo utilizzarle all’interno di una qualsiasi stringa. Sono rappresentate dallo backslash "\" seguito da una sequenza di uno o più caratteri ammessi da C++.
 
 ![image](https://user-images.githubusercontent.com/112080821/204822065-18827eea-46cd-4fd3-b4e2-060d5b1ce27c.png)
 
@@ -542,8 +549,6 @@ Il vettore può contenere al più 5 elementi interi. Questi elementi si trovano 
 Per accedere ad un elemento specifico basta indicare l’indice, tra parentesi quadre, dopo il nome dell’array stesso.
 L’indice parte da zero. Se un array ha cardinalità N, l’ultimo elemento ha indice N-1. Per indicare la posizione, tra parentesi quadre, possiamo utilizzare valori costanti, espressioni o variabili ma sempre di tipo intero!
 
-Riempimento effettivo
-Allocazione statica
 
 es.
 ```c++
