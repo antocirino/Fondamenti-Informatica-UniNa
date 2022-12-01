@@ -344,3 +344,93 @@ int ricercaMinimoVettore (int *vettore, int riemp) {
     return min;
 }
 ```
+
+## Aggiungere elemento in un vettore
+Prototipo funzione:
+```c++
+int* aggiungiElementoVettore (int *, int &, int, int, bool &);
+```
+Contenuto del main:
+```c++
+int *vettore;
+int riemp;
+inr posizione;
+int elemento;
+bool esito;
+...
+cout<<"Immettere la posizione in cui inserire l'elemento"<<endl;
+cin>>posizione;
+cout<<"Inserire l'elemento da inserire"<<endl;
+cin>>elemento;
+vettore = aggiungiElementoVettore(vettore, riemp, posizione, elemento, esito);
+if (esito) {
+    cout<<"Il nuovo vettore e':"<<endl;
+    stampaVettore(vettore, riemp);
+    cout<<endl;
+
+} else {
+    cout<<"Errore!!! la posizione inserita supera la dimensione del vettore, oppure e' negativa"<<endl;
+}
+```
+Codice funzione:
+```c++
+int* aggiungiElementoVettore (int *vet, int &dim, int pos, int elem, bool &esito) {
+    if(pos>=0 && pos<dim+1){
+        //possibile inserire
+        dim++;
+        int *nuovoVet;
+        nuovoVet = new int[dim];
+        for(int i=0; i<pos; i++) {
+               *(nuovoVet+i) = *(vet+i);
+            }   
+        for (int i=pos+1; i<dim; i++) {
+            *(nuovoVet+i+1) = *(vet+i);
+        }
+        *(nuovoVet+pos)=elem;
+         esito = true;
+        delete[] vet;
+        return nuovoVet;
+    } else {
+        esito = false;
+        return vet;
+    }
+}
+```
+
+## Ordinamento elementi di un vettore (selection sort)
+Prototipo funzione:
+```c++
+void ordinaElementiVettore (int *, int);
+```
+Contenuto del main:
+```c++
+int riemp;
+int *vettore;
+...
+ordinaElementiVettore(vettore, riemp);
+cout<<"Ordinamento..."<<endl;
+cout<<"Il vettore ordinato in senso crescente e':"<<endl;
+stampaVettore(vettore, riemp);
+cout<<endl;
+```
+Codice funzione:
+void ordina(int *vettore, int riemp) {
+    int temp, min, pos;
+    for(int i=0; i<riemp-1; i++) {
+        min=*(vettore+i);
+        pos=i;
+        for (int j=i+1;j<riemp;j++){
+            if (*(vettore+j)<min) {
+                min=*(vettore+j);
+                pos=j;
+            }
+        }
+        //algoritmo di scambio
+        if (i!=pos){
+            temp=*(vettore+i); 
+            *(vettore+i)=*(vettore+pos);
+            *(vettore+pos)=temp;
+        }
+    }
+}
+```
