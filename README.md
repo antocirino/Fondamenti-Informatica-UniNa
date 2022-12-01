@@ -870,4 +870,40 @@ In genere quando si usano le librerie si hanno due file distinti:
 -	File di implementazione o sorgente (.cpp oppure .c) contenente l’implementazione di tutte le funzioni messe a disposizione dalla libreria.
 I due file devono avere lo stesso
 
+## Lo stream
+Il linguaggio C++ per potere far interagire un programma con l’ambiente che lo circonda, adotta l’architettura introdotta dal sistema operativo UNIX. Basata su tre canali principali per il transito dei dati:
+-	Lo standard input, o stdin, è il canale di input mediante il quali i dati sono forniti al sistema.
+-	Lo standard output, o stdout, è il canale che raccoglie i risultati prodotti dal sistema.
+-	Lo standard error, o sstderr, che schematizza quanto accadeva nei primi elaboratori che erano dotati di un monitor dedicato agli operatori, detto anche console di sistema, dove apparivano solo messaggi di servizio quali segnalazioni di errore, richieste di intervento, ecc…
+Ora però stdout e stderr vengono riportati sullo stesso terminale.
+
+Lo stream è il flusso di dati che transita attraverso un canale. È costituito da una sequenza di caratteri o di codici binari. cin e cout sono esempi di stream. Questi ultimi usano il terminale come sorgente e destinazione. Possono però essere reindirizzati verso file di testo.
+La lunghezza della sequenza può essere potenzialmente infinita, si ferma però quando incontra un carattere speciale, terminale, l’EOF che ne identifica la fine (end of file).
+Gli stream testuali sono sequenze di caratteri appartenenti al codice ASCII. Gli stream binari sono sequenze di byte corrispondenti alle rappresentazioni delle informazioni in memoria centrale.
+
+Gli stream possono essere associati a diversi dispositivi fisici come stampanti o file presenti sulla memoria di massa.
+
+Un file è una sequenza di elementi tutti dello stesso tipo residenti su memoria di massa. I file sulle memorie di massa vengono gestiti dal sistema operativo nella sua componente detta File System. In genere ogni file è caratterizzato da nome, estensione e percorso.
+
+I file sono stream connessi alle memorie di massa. Per leggere lo stream da file dobbiamo aprire una connessione (come fanno cin e cout verso il terminale). Quando abbiamo finito, dobbiamo chiudere la connessione.
+La connessione dello stream concorda con il File System non solo percorso e nome del file ma anche le modalità di accesso (in sola lettura, scrittura o entrambe) ad esso. All’atto della connessione viene creato in memoria il buffer di transito a cui si accede mediante puntatore.
+
+Per la gestione dei file viene fornita la libreria fstream. Ci sono tre tipi di stream:
+
+-	fstream: (file stream) per leggere e scrivere dati sui file.
+-	ifstream (input file stream): per la sola lettura di dati.
+-	ofstream (output file stream: per la sola scrittura di dati.
+Una variabile di tipo stream viene considerata stregua degli standard input ed output. Si applicano gli stessi operatori di redirezione tenendo però in conto la modalità di accesso:
+```c++
+fstream VariabileMioFile;   //apro il canale di comunicazione verso il file
+VariabileMioFile >> variabile;  //sposto il dato che leggo sulla variabile
+VariabileMioFile << variabile;   //sposo la variabile sul dato del file
+```
+I file stream richiedono una preventiva richiesra di connessione al File System, detta anche apertura del file.
+La funzione open apre lo stream verso il file, crea il collegamento tra memoria centrale e File System. Deve contenere una stringa che indica il nome e l’estensione ed eventualmente il percorso.
+È possibile combinare le modalità di accesso:
+```c++
+ios::app // non cancella il contenuto del file quando vado a scriverci sopra (app=append)
+```
+
 
