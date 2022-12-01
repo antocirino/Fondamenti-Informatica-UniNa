@@ -414,6 +414,7 @@ stampaVettore(vettore, riemp);
 cout<<endl;
 ```
 Codice funzione:
+```c++
 void ordina(int *vettore, int riemp) {
     int temp, min, pos;
     for(int i=0; i<riemp-1; i++) {
