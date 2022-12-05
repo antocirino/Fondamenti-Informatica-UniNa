@@ -24,7 +24,8 @@ void ordinamentoDecrescente (int, documento *);
 documento* nuovoVettore(int, documento *, int&);
 
 int main () {
-    int riemp, riemp2, senso;
+    int riemp, riemp2;
+    char senso;
     documento *vettore, *vettore2;
 
     vettore = caricaFile(riemp);
@@ -33,18 +34,18 @@ int main () {
     stampa (riemp, vettore);
     
     do {
-        cout << "Ordinare gli elementi per dimensione in senso crescente(0) o decrescete(1)? ";
+        cout << "Ordinare gli elementi per dimensione in senso crescente(c) o decrescete(d)? ";
         cin >> senso;
-        if (senso!=1 && senso!=0) {
+        if (senso!='c' && senso!='d') {
             cout << endl <<"Errore! Carattere non valido." << endl;
         }
-    } while (senso!=1 && senso!=0);
+    } while (senso!='c' && senso!='c');
     cout << endl;
-    if (senso == 0) {
+    if (senso == 'c') {
         ordinamentoCrescente(riemp, vettore);
         cout << "Ordinamento crescente: " << endl;
         stampa(riemp, vettore);
-    } else if(senso == 1) {
+    } else if(senso == 'd') {
         ordinamentoDecrescente(riemp, vettore);
         cout << "Ordinamento deccrescente: " << endl;   
         stampa(riemp, vettore);
