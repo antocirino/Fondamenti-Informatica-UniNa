@@ -3,6 +3,7 @@
 ## Riempimento vettore
 Prototipo funzione:
 ```c++
+#define maxdim 10
 void riempimento(int &);
 ```
 Cotenuto del main:
