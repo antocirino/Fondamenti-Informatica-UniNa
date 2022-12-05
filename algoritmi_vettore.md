@@ -86,7 +86,7 @@ Codice funzione:
 int ricercaMassimoVettore (int vettore[], int riemp) {
     int max = vettore[0];
     for (int i = 0; i<riemp; i++) {
-        if (max>vettore[i]) {
+        if (max<vettore[i]) {
             max = vettore[i];
         }
     }
@@ -111,7 +111,7 @@ Codice funzione:
 int ricercaMinimoVettore (int vettore[], int riemp) {
     int min = vettore[0];
     for (int i = 0; i<riemp; i++) {
-        if (min<vettore[i]) {
+        if (min>vettore[i]) {
             min = vettore[i];
         }
     }
