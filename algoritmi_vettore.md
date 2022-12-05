@@ -233,6 +233,7 @@ bool ricercaLineareVettore(int vettore[], int riemp, int elem, int &posizione){
 ```
 
 ## Ordinamento elementi di un vettore (selection sort)
+Funzione per l'ordinamento crescente. Per decrescente cambiare i < in > e i nomi delle variabili opportunamente.
 Prototipo funzione:
 ```c++
 void ordinamentoElementiVettore(int [], int );
@@ -399,6 +400,7 @@ int* aggiungiElementoVettore (int *vet, int &dim, int pos, int elem, bool &esito
 ```
 
 ## Ordinamento elementi di un vettore (selection sort)
+Funzione per l'ordinamento crescente. Per decrescente cambiare i < in > e i nomi delle variabili opportunamente.
 Prototipo funzione:
 ```c++
 void ordinaElementiVettore (int *, int);
